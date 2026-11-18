@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Links | Gousset Lab</title>
+  <meta
+    name="description"
+    content="Research links, previous labs, wiki pages, media, and web tools related to the Gousset Lab."
+  />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: transparent;
+      border-bottom: none;
+      position: relative;
+      top: auto;
+      z-index: 100;
+    }
+
+    .header-inner {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      display: block;
+      padding: 0.5rem 0 0 0;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #555555;
+    }
+
+    .site-title span:last-child {
+      color: #a9a9a9;
+      font-weight: 700;
+    }
+
+    .nav {
+      margin: 0;
+    }
+
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .nav li {
+      margin: 0;
+      padding: 0 2.1rem 0 0;
+    }
+
+    .nav a {
+      color: #9a9a9a;
+      text-decoration: none;
+    }
+
+    .nav a:visited {
+      color: #9a9a9a;
+    }
+
+    .nav a:hover {
+      color: #cc0000;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #666666;
+    }
+
+    .hero {
+      position: relative;
+      width: min(100%, 1000px);
+      aspect-ratio: 1000 / 600;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-quote-mark {
+      position: absolute;
+      left: -0.2em;
+      top: -0.30em;
+      z-index: 2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 10vw, 11.25rem);
+      line-height: 1;
+      color: #b22f0f;
+      pointer-events: none;
+    }
+
+    .hero-quote {
+      position: absolute;
+      left: 59%;
+      top: 80%;
+      width: 34%;
+      z-index: 2;
+      color: #000000;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .hero-quote p {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-quote p:first-of-type {
+      font-size: clamp(0.95rem, 2vw, 1.45rem);
+      line-height: 1.28;
+    }
+
+    .hero-cite {
+      margin-top: 0.75rem;
+      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+    }
+
+    .caption {
+      font-size: 0.62rem;
+      color: #666666;
+      text-align: left;
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 0.2rem 0 0;
+      line-height: 1.15;
+    }
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .content-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 2rem 0;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section:first-child {
+      margin-top: 0;
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .link-entry {
+      padding-left: 1rem;
+      border-left: 3px solid var(--border);
+    }
+
+    .link-entry p {
+      margin: 0;
+    }
+
+    .link-note {
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .site-footer {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .content-card {
+        padding: 1.25rem 0;
+      }
+
+      .hero-quote {
+        left: 48%;
+        top: 54%;
+        width: 42%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="Welcome.html">Welcome</a></li>
+          <li><a href="About_Me.html">About Me</a></li>
+          <li><a href="Lab_Members.html">Lab Members</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="TNT_Movies.html">TNT Movies</a></li>
+          <li><a href="Links.html" aria-current="page">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Featured quote">
+    <img
+      class="hero-image"
+      src="Links_files-shapeimage_1.png"
+      alt="3D reconstruction of CAD cells exhibiting TNTs."
+    />
+
+    <div class="hero-quote">
+      <div class="hero-quote-mark">&#8220;</div>
+      <p>They thought I was crazy, absolutely mad.</p>
+      <p class="hero-cite">Barbara McClintock</p>
+    </div>
+  </section>
+
+  <p class="caption">
+    3D reconstruction of CAD cells exhibiting TNTs. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+    <article class="content-card">
+      <section class="section" aria-labelledby="links-heading">
+        <h2 id="links-heading">Links</h2>
+
+        <div class="section">
+          <h2>ResearchGate</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="http://www.researchgate.net/profile/Karine_Gousset/" target="_blank" rel="noopener noreferrer">Karine Gousset, Ph.D.</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Google Scholar</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="http://scholar.google.com/citations?hl=en&amp;view_op=list_works&amp;gmla=AJsN-F4PjBiyXvHPYzSqV2vFQk1RvIfuCsI2rLLyhaO73d74V4t4M_2wcsmlppaukdg-XI_jVB5LSu_rq57QzJjlPKs9yF2DcQ&amp;user=SXD_4vMAAAAJ" target="_blank" rel="noopener noreferrer">Karine Gousset, Ph.D.</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Previous Labs</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="http://www.pasteur.fr/ip/easysite/pasteur/en/research/scientific-departments/cell-biology-and-infection/units-and-groups/membrane-traffic-and-pathogenesis/welcome-page" target="_blank" rel="noopener noreferrer">Institut Pasteur - Membrane Traffic and Pathogenesis Unit - Paris, France</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://www.pasteurfoundation.org/pastfellows.shtml" target="_blank" rel="noopener noreferrer">Pasteur Foundation - New York, New York</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://home.ncifcrf.gov/hivdrp/Freed.html" target="_blank" rel="noopener noreferrer">National Cancer Institute - HIV Drug Resistance Program - Virus-Cell Interaction - Frederick, MD</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://www.bio.jhu.edu/Faculty/Edidin/" target="_blank" rel="noopener noreferrer">Laboratory of Dr. Michael Edidin - Department of Biology - Johns Hopkins University - Baltimore, MD</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://www.vetmed.ucdavis.edu/faculty/results.cfm?fid=13065" target="_blank" rel="noopener noreferrer">Laboratory of Dr Fern Tablin - Anatomy, Physiology and Cell Biology - UC Davis - Davis, CA</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Wiki Pages</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="http://en.wikipedia.org/wiki/Membrane_nanotube#cite_note-6" target="_blank" rel="noopener noreferrer">Tunneling Nanotubes</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://en.wikipedia.org/wiki/Lipid_raft#cite_note-pmid14980224-43" target="_blank" rel="noopener noreferrer">Lipid rafts</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>My TNT movies and pics used in a Nature Article and Video</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="https://youtu.be/66j-9JHvL8E" target="_blank" rel="noopener noreferrer">The mysterious nanotube network connecting cells</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="http://www.nature.com/news/how-the-internet-of-cells-has-biologists-buzzing-1.22645?WT.mc_id=FBK_NatureNews&amp;sf115532779=1" target="_blank" rel="noopener noreferrer">How the Internet of cells has biologists buzzing</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Web Tools</h2>
+          <div class="link-list">
+            <div class="link-entry">
+              <p><a href="https://goussetlab.shinyapps.io/compleat-app/" target="_blank" rel="noopener noreferrer">COMPLEAT Online App</a></p>
+            </div>
+            <div class="link-entry">
+              <p><a href="https://goussetlab.shinyapps.io/PROTPR/" target="_blank" rel="noopener noreferrer">PROTPR Online App</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a
+        href="http://www.fresnostate.edu/csm/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fresno State College of Science and Mathematics"
+      >
+        <img
+          class="footer-logo"
+          src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+          alt="Fresno State logo"
+        />
+      </a>
+    </div>
+	  
+	  <div>
+		  <center>
+			  <!-- Default Statcounter code for Gousset
+					http://zimmer.csufresno.edu/~kgousset/Gousset_Lab/Welcome.html
+					-->
+					<script type="text/javascript">
+					var sc_project=10020829; 
+					var sc_invisible=0; 
+					var sc_security="e5c0fd1b"; 
+					var scJsHost = "https://";
+					document.write("<sc"+"ript type='text/javascript' src='" +
+					scJsHost+
+					"statcounter.com/counter/counter.js'></"+"script>");
+					</script>
+					<noscript><div class="statcounter"><a title="Web Analytics
+					Made Easy - Statcounter" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/10020829/0/e5c0fd1b/0/"
+					alt="Web Analytics Made Easy - Statcounter"
+					referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+								  <!-- End of Statcounter Code -->
+		  </center>
+		  </div>
+  </footer>
+</body>
+</html>

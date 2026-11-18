@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Gousset Lab</title>
+  <meta
+    name="description"
+    content="Publications, invited lectures, and poster presentations from the Gousset Lab."
+  />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: transparent;
+      border-bottom: none;
+      position: relative;
+      top: auto;
+      z-index: 100;
+    }
+
+    .header-inner {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      display: block;
+      padding: 0.5rem 0 0 0;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #555555;
+    }
+
+    .site-title span:last-child {
+      color: #a9a9a9;
+      font-weight: 700;
+    }
+
+    .nav {
+      margin: 0;
+    }
+
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .nav li {
+      margin: 0;
+      padding: 0 2.1rem 0 0;
+    }
+
+    .nav a {
+      color: #9a9a9a;
+      text-decoration: none;
+    }
+
+    .nav a:visited {
+      color: #9a9a9a;
+    }
+
+    .nav a:hover {
+      color: #cc0000;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #666666;
+    }
+
+    .hero {
+      position: relative;
+      width: min(100%, 1000px);
+      aspect-ratio: 1000 / 600;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-quote {
+      position: absolute;
+      left: 19%;
+      top: 14%;
+      width: 44%;
+      z-index: 2;
+      color: #b22f0f;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .hero-quote-mark {
+      position: absolute;
+      left: -0.18em;
+      top: -0.28em;
+      z-index: 2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 10vw, 11.25rem);
+      line-height: 1;
+      color: #2E5E19;
+      pointer-events: none;
+    }
+
+    .hero-quote p {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-quote p:first-of-type {
+      font-size: clamp(1rem, 2.1vw, 1.55rem);
+      line-height: 1.25;
+    }
+
+    .hero-cite {
+      margin-top: 0.75rem;
+      font-size: clamp(1.1rem, 2.3vw, 1.7rem);
+    }
+
+    .caption {
+      font-size: 0.62rem;
+      color: #666666;
+      text-align: left;
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 0.2rem 0 0;
+      line-height: 1.15;
+    }
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .content-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 2rem 0;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .section h3 {
+      margin: 1.75rem 0 0.75rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.15rem;
+      color: #222;
+    }
+
+    .publications-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .publication-list,
+    .lecture-list,
+    .poster-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .publication-entry {
+      padding-left: 1rem;
+      border-left: 3px solid var(--border);
+      line-height: 1.25;
+    }
+
+    .publication-entry p {
+      margin: 0;
+    }
+
+    .sidebar-stack {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .cover-frame {
+      background: #ffffff;
+      border: 2px solid #eeeeee;
+      padding: 4px;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .cover-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .site-footer {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .publications-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .content-card {
+        padding: 1.25rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="Welcome.html">Welcome</a></li>
+          <li><a href="About_Me.html">About Me</a></li>
+          <li><a href="Lab_Members.html">Lab Members</a></li>
+          <li><a href="Publications.html" aria-current="page">Publications</a></li>
+		  <li><a href="TNT_Movies.html">TNT Movies</a></li>
+          <li><a href="Links.html">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Featured quote">
+    <img
+      class="hero-image"
+      src="Publications_files-shapeimage_1.png"
+      alt="3D reconstruction of CAD cells expressing mCherry-Myo10."
+    />
+
+    <div class="hero-quote">
+      <div class="hero-quote-mark">&#8220;</div>
+      <p>Fortune favors the prepared mind.</p>
+      <p class="hero-cite">Louis Pasteur</p>
+    </div>
+  </section>
+
+  <p class="caption">
+    3D reconstruction of CAD cells expressing mCherry-Myo10. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+    <article class="content-card">
+      <section class="section" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications</h2>
+
+        <div class="publications-layout">
+          <div>
+            <div class="publication-list">
+			  <div class="publication-entry"><p>Gousset K. (2027). Tunneling Nanotubes as Potential Therapeutic Targets: Opportunities for Innovative Therapeutics for Neurodegeneration and Neuroinflammation? <em>Commissioned review</em> for Drug Design, Development and Therapy. <em>In preparation.</em></p></div>
+				
+			  <div class="publication-entry"><p>Gousset K. and Tovar J. (2027). From LCM to Multi-Omics: A Multidimensional Pipeline for High-Confidence Mapping of the <b>Tunneling Nanotube</b> Proteome. <em>In preparation.</em></p></div>
+				
+              <div class="publication-entry"><p>Gousset K. and Tovar J. (2026). From LCM to Multi-Omics: A Multidimensional Pipeline for High-Confidence Mapping of the <b>Filopodia</b> Proteome. <em>In preparation.</em></p></div>
+
+              <div class="publication-entry"><p>Tovar J. and Gousset K. (2026). Decoy-Free False Discovery Rate Estimation Using Multiple Statistical Models in the Sage Proteomics Search Engine. <em>In preparation.</em></p></div>
+			
+			  <div class="publication-entry"><p>Savala D. and Gousset K. (2026). The role of Arf1 in the formation of tunneling nanotubes in neuronal CAD cells. <em>In preparation.</em></p></div>
+
+              <div class="publication-entry"><p>Perez, A.R., Tovar J., and Gousset K. (2026). Myosin-X Acts Upstream of L-Plastin to Drive Stress-Induced Tunneling Nanotubes. Cells. 2026 Jan 24;15(3):224. doi: 10.3390/cells15030224.</p></div>
+
+              <div class="publication-entry"><p>Gordon A, Gousset K. (2021). Utilization of laser capture microdissection coupled to mass spectrometry to uncover the proteome of cellular protrusions. <a href="https://link.springer.com/protocol/10.1007/978-1-0716-1178-4_3">Methods Mol Biol. 2021;2259:25-45</a>. <a href="https://pubmed.ncbi.nlm.nih.gov/33687707/">PubMed</a>.</p></div>
+
+              <div class="publication-entry"><p>Gousset K., Gordon A., Kannan S., and Tovar J. (2019). A novel Microproteomic Approach Using Laser Capture Microdissection to Study Cellular Protrusions. <a href="https://www.mdpi.com/1422-0067/20/5/1172">Int. J. Mol. Sci. 2019, 20, 1172</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+novel+Microproteomic+Approach+Using+Laser+Capture+Microdissection+to+Study+Cellular+Protrusions">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Sartori-Rupp A., Cordero D., Pepe A., Gousset K., Delage E., Corroyer-Dulmont S., Schmitt C., Krijnse-Locker J., and Zurzolo C. (2019). Correlative cryo-electron microscopy reveals the structure of TNTs in neuronal cells. <a href="https://www.nature.com/articles/s41467-018-08178-7">Nat Commun. 2019;10(1):342</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/30664666">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Uhl J., Gujarathi S., Waheed A.A., Gordon A., Freed E.O., and Gousset K. (2018). Myosin-X is essential to the intercellular spread of HIV-1 Nef through tunneling nanotubes. <a href="http://link.springer.com/article/10.1007/s12079-018-0493-z">Journal of Cell Communication and Signaling</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/30443895">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gordon A., Kannan S., and Gousset K. (2018). A novel cell fixation method that greatly enhances protein identification in microproteomic studies using laser capture microdissection and mass spectrometry. <a href="https://doi.org/10.1002/pmic.201700294">Proteomics</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Novel+Cell+Fixation+Method+that+Greatly+Enhances+Protein+Identification+in+Microproteomic+Studies+Using+Laser+Capture+Microdissection+and+Mass+Spectrometry">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Tanveer A., Ariazi J., Benowitz A., Biasi V., Den Boer M., Cherqui S., Douillet N., Eugenin E.A., Favre D., Goodman S., Gousset K., Hanein D., Israel D., Kimura S., Kirkpatrick R., Kuhn N., Jeong C., Lou E., Mailliard R., Maio S., Okafo G., Osswald M., Pasquier J., Polak R., Pradel G., Rooij B., Schaeffer P., Skeberdis A., Smith I., Volkmann N., Wu Z. and Zurzolo C. (2017). Tunneling Nanotubes and Gap Junctions – their role in long-range intercellular communication during development, health, and disease. <a href="https://www.frontiersin.org/articles/10.3389/fnmol.2017.00333/abstract">Front. Mol. Neurosci.</a>. <a href="https://www.ncbi.nlm.nih.gov/pubmed/29089870">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K., Marzo L., Commere P.H., and Zurzolo C. (2013). Myo10 is a key regulator of TNT formation in neuronal cells. <em>J Cell Sci.</em> 126(Pt 19):4424-35. <a href="http://www.ncbi.nlm.nih.gov/pubmed/23886947">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Marzo L., Gousset K., and Zurzolo C. (2012). Multifaceted roles of tunneling nanotubes in intercellular communication. <em>Front Physiol.</em> 3:72. <a href="http://www.ncbi.nlm.nih.gov/pubmed/22514537">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Langevin C., Gousset K., Costanzo M. and Zurzolo C. (2010). Characterization of the role of dendritic cells in prion transfer to primary neurons. <em>Biochem J.</em> 431(2):189-98. <a href="http://www.ncbi.nlm.nih.gov/pubmed/20670217">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Bennett A.E., Narayan K., Shi D., Hartnell L.M., Gousset K., He H., Lowekamp B.C., Yoo T.S., Bliss D., Freed E.O., and Subramaniam S. (2009). Ion-Abrasion scanning electron microscopy reveals surface-connected tubular conduits in HIV-infected macrophages. <em>PLoS Pathog.</em> 5(9). <a href="http://www.ncbi.nlm.nih.gov/pubmed/19779568">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K. and Zurzolo C. (2009). Tunnelling nanotubes: a highway for prion spreading? <em>Prion.</em> 3(2):94-98. <a href="http://www.ncbi.nlm.nih.gov/pubmed/19471116">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K., Schiff E., Langevin C., Marijanovic Z., Caputo A., Browman D.T., Chenouar N., de Chaumont F., Martino A., Enninga J., Olivo-Marin J-C., Männel D., and Zurzolo C. (2009). Prions Hijack tunnelling nanotubes for intercellular spread. <em>Nat. Cell. Biol.</em> 11(3):328-336. <a href="http://www.ncbi.nlm.nih.gov/pubmed/19198598">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Schiff E, Campana V, Tivodar S, Lebreton S, Gousset K., Zurzolo C. (2008). Coexpression of wild-type and mutant prion proteins alters their cellular localization and partitioning into detergent-resistant membranes. <em>Traffic.</em> 9(7):1101-1115. <a href="http://www.ncbi.nlm.nih.gov/pubmed/18410485">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K., Ablan S.D., Coren L.V., Ono A., Soheilian F., Nagashima K., Ott D.E., Freed E.O. (2008). Real-time visualization of HIV-1 GAG trafficking in infected macrophages. <em>PLoS Pathog.</em> 4(3):e1000015. <a href="http://www.ncbi.nlm.nih.gov/pubmed/18369466">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Wu C.K., Gousset K., and Hughes S.H. (2007). Targeting expression to the endoplasmic reticulum improves the protein folding of human telomerase reverse transcriptase. <em>Protein Expr Purif.</em> 56(1):8-19. <a href="http://www.ncbi.nlm.nih.gov/pubmed/17658270">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Liu F., Stephen A.G., Adamson C.S., Gousset K., Aman M.J., Freed E.O., Fisher R.J. and Burke T.R. Jr. (2006). Hydrazone- and hydrazide-containing N-substituted glycines as peptoid surrogates for expedited library synthesis. <em>Org. Lett.</em> 8(22):5165-5168. <a href="http://www.ncbi.nlm.nih.gov/pubmed/17048869">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Shrimpton C.N., Gousset K., Tablin F., and Lopez J.A. (2004). Isolation and analysis of platelet lipid rafts. In: <em>Platelets and Megakaryocytes. Methods Mol. Biol.</em> 273:213-238. <a href="http://www.ncbi.nlm.nih.gov/pubmed/15308804">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Leidy C., Gousset K., Ricker J., Wolkers W.F., Tsvetkova N.M., Tablin F., and Crowe J.H. (2004). Lipid Phase Behavior and Stabilization of Domains in Membranes of Platelets. <em>Cell Biochem Biophys.</em> 40(2):123-148. <a href="http://www.ncbi.nlm.nih.gov/pubmed/15054219">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Sharma P., Varma R., Sarasij R.C., Ira, Gousset K., Krishnamoorthy G., Rao M., and Mayor S. (2004). Nanoscale organization of multiple GPI-anchored proteins in living cell membranes. <em>Cell</em> 116(4):577-589. <a href="http://www.ncbi.nlm.nih.gov/pubmed/14980224">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K., Tsvetkova N.M., Crowe J.H., and Tablin F. (2004). Important role of raft aggregation in the signaling events of cold-induced platelet activation. <em>Biochim. Biophys. Acta</em> 1660(1-2):7-15. <a href="http://www.ncbi.nlm.nih.gov/pubmed/14757215">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Crowe J.H., Tablin F., Wolkers W.F., Gousset K., Tsvetkova N.M. and Ricker J. (2003). Stabilization of membranes in human platelets freeze-dried with trehalose. <em>Chem. Phys. Lipids</em> 122(1-2):41-52. <a href="http://www.ncbi.nlm.nih.gov/pubmed/12598037">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Gousset K., Wolker W.F., Tsvetkova N.M., Oliver A.E., Field C.L., Walker N.J., Crowe J.H. and Tablin F. (2002). Evidence for a physiological role for membrane rafts in human platelets. <em>J. Cell. Physiol.</em> 190(1):117-128. <a href="http://www.ncbi.nlm.nih.gov/pubmed/11807818">PubMed</a></p></div>
+
+              <div class="publication-entry"><p>Tablin F., Wolkers W.F., Walker N.J., Oliver A.E., Tsvetkova N.M., Gousset K., Crowe L.M., and Crowe J.H. (2001). Membrane reorganization during chilling: Implications for long-term stabilization of platelets. <em>Cryobiology</em> 43(2):114-123. <a href="http://www.ncbi.nlm.nih.gov/pubmed/11846466">PubMed</a></p></div>
+            </div>
+
+            <section class="section" aria-labelledby="lectures-heading">
+              <h2 id="lectures-heading">Invited Lectures</h2>
+              <div class="lecture-list">
+				  <div class="publication-entry"><p>Gousset K. (2027) From LCM to Multi-Omics: A Multidimensional Pipeline for High-Confidence Mapping of the <b>Tunneling Nanotube</b> Proteome.  Speaker and Co-Organizer, Nanotubular Communication across Health and Disease, 2027 FASEB Science Research Conference, Niagara Falls, NY.</p></div>
+				  
+				  <div class="publication-entry"><p>Gousset K. (2026)  Myosin-X Acts Upstream of L-Plastin to Drive Stress-Induced Tunneling Nanotubes.  2026 Conference on Nanotubular Communication in Development and Disease, University of Houston.</p></div>
+				  
+				  <div class="publication-entry"><p>Gousset K. (2026)  From LCM to Multi-Omics: A Multidimensional Pipeline for High-Confidence Mapping of the <b>Filopodia</b> Proteome.  2026 Conference on Nanotubular Communication in Development and Disease, University of Houston.</p></div>
+				  
+				  <div class="publication-entry"><p>Gousset K. (2023) Tunneling nanotubes, their role in diseases, and development of techniques to study these subcellular structures. Department of Biological Sciences, California State University, Stanislaus.</p></div>
+				  <div class="publication-entry"><p>Gousset K. (2021) Uncovering the proteomes and transcriptomes of cellular protrusions using laser capture microdissection. Department of Chemistry and Biochemistry, California State University, Long Beach.</p></div>
+				  <div class="publication-entry"><p>Gousset K. (2021) Isolation of Cellular Protrusions Using Laser Capture Microdissection for Subcellular Microproteomics Studies (Canceled due to COVID). MMI Meeting on Microdissection, Micromanipulation, and Imaging. Aying, Germany.</p></div>
+				  <div class="publication-entry"><p>Gousset K. (2020) Microproteomic Analysis of Laser Capture Microdissected Cell Protrusions. World Congress on In Vitro Biology, San Diego, CA.</p></div>
+				  <div class="publication-entry"><p>Gousset K. (2020) What the Cell is Going On? Scientists Reveal Methods for Successful Single-Cell Omics Research. MMI Webinar.</p></div>
+				  <div class="publication-entry"><p>Gousset K. (2020) Microproteomic analysis of laser capture microdissected cell protrusions. Department of Biology, California State University, Fresno.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2019) Laser capture microdissection and microproteomics: uncovering the proteomes of diverse cellular protrusions. American Society for Cell Biology (ASCB) Annual Meeting, Washington, DC.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2019) A Novel Cell Fixation Method that Greatly Enhances Protein Identification in Microproteomic Studies Using Laser Capture Microdissection and Mass Spectrometry. 7th International Congress on Analytical Proteomics, Caparica, Portugal.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2018) Microproteomic analysis of laser capture microdissected cell protrusions. Department of Biology &amp; Molecular Biology, Colorado State University.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2017) Microproteomic analysis of laser capture microdissected cell protrusions. Department of Biology, San Francisco State University.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2016) Myosin-X and HIV-1 Nef: Towards a disease state model system and marker of tunneling nanotubes. GSK, Pennsylvania.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2015) TNTs, Myosin-X and mitochondria: a new paradigm in chronic and persistent disease. University of Mississippi School of Pharmacy.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2015) HIV-1 Nef Induces TNTs in Macrophages through Up-regulation of Myo10. American Society for Virology Annual Meeting, London, Ontario, Canada.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2015) HIV-1 Nef Induces TNTs in Macrophages through Up-regulation of Myo10. NCI Virus-Cell Interaction Section, Frederick, MD.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2015) The role of Calpain-2 in Myosin X related diseases. Queen's Cancer Research Institute, Queen’s University, Kingston, ON, Canada.</p></div>
+                <div class="publication-entry"><p>Gousset K. (2015) The role of tunneling nanotubes and Myosin X in disease. Department of Genetics, School of Medicine, Stanford University.</p></div>
+                <div class="publication-entry"><p>Zurzolo C., Gousset K., and Marzo L. (2011). Mechanisms of Intercellular Trafficking of PrPsc. PRION 2011. Montreal, Quebec, Canada.</p></div>
+                <div class="publication-entry"><p>Gousset K., Marzo L. and Zurzolo C. (2011) Role of Tunneling nanotubes (TNTs) in PrPSc intercellular spreading. 1st French-Italian joint meeting on subcellular trafficking. Padua, Italy.</p></div>
+                <div class="publication-entry"><p>Gousset K., Marzo L. and Zurzolo C. (2009) Characterization of tunnelling nanotubes (TNTs) in neuronal cells. BCI Departmental retreat; La Colle sur Loup, France.</p></div>
+                <div class="publication-entry"><p>Gousset K. et al. (2008) Prions Hijack tunneling nanotubes for intercellular spread. “Imaging Host-Pathogen Interactions” symposium in Heidelberg, Germany.</p></div>
+                <div class="publication-entry"><p>Gousset K., Tsvetkova N.M., Crowe J.H., and Tablin F. (2002) Selective Partitioning of receptors and signaling molecules in raft membrane domains of human platelets. <em>Biophys. J.</em> 82.</p></div>
+                <div class="publication-entry"><p>Gousset K. and Tablin F. (2000) Membrane Rafts are a Key Physiological Event in Human Platelet Cold-Induced Activation. <em>Mol. Biol. Cell</em> 11.</p></div>
+              </div>
+            </section>
+
+            <section class="section" aria-labelledby="posters-heading">
+              <h2 id="posters-heading">Poster Presentations</h2>
+              <div class="poster-list">
+				  <div class="publication-entry"><p>Kaur, R. and Gousset K. (2025) Effect of Fixation on Immunofluorescence. 45th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Ortiz, D. and Gousset K. (2025) Role of Lactate dehydrogenase B in formation of tunneling nanotubes. 45th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Ramirez, A. and Gousset K. (2024) Analyzing the Role of L-Plastin in the Formation of Tunneling Nanotubes. 45th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Pama-Ghuman, A., Stewart, K., Nishimura, E., Gousset K. (2024) Characterization of the Transcriptomes of Specific Subtypes of Cellular Protrusions Isolated by Laser Capture Microdissection. 45th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Savala D. and Gousset K. (2023) Exploring the Role of Protein-X in Tunneling Nanotube Formation. 35th Annual CSU Biotechnology Symposium.</p></div>
+				  <div class="publication-entry"><p>Pingitore F., Adams C., and Gousset K. (2022) Proteome characterization of tunneling nanotubes with dda-PASEF acquisition mode. ASMS Conference on Mass Spectrometry and Allied Topics, Minneapolis Convention Center, Minneapolis, MN</p></div>
+				  <div class="publication-entry"><p>Green N. and Gousset K. (2022) Does the expression level of the protein Vanin 1 have an effect on the formation of Tunneling nanotubes in neuronal cells? 43rd Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Savala D. and Gousset K. (2022) Exploring the role of ADP-ribosylation Factor 1 (Arf1) in Tunneling Nanotube (TNT) formation. 43rd Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Putnam N. and Gousset K. (2021) Antimycin A Leads to the Upregulation of Myo10 and Tunneling Nanotube Formation. 42nd Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Azami P., and Gousset K. (2020) The Role of CD7 Protein in Tunneling Nanotube Formation. 32nd Annual CSU Biotechnology Symposium.</p></div>
+				  <div class="publication-entry"><p>Ajanel J., Xiong Z., Pham A., and Gousset K. (2020) The Effect of Hydrogen Peroxide and Glutamate on Myosin-X expression and TNT Formation. 32nd Annual CSU Biotechnology Symposium.</p></div>
+				  <div class="publication-entry"><p>Azami P. and Gousset K. (2020) Role of CD7 protein in Tunneling Nanotube formation in Neuronal Cells. 41st Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Ajanel J., Xiong Z., Pham A., and Gousset K. (2019) Physiological Concentrations of Hydrogen Peroxide and Glutamate, Induce Tunneling Nanotube Formation in Hela and Cad Cells. 2019 American Society for Cell Biology (ASCB) Annual Meeting, Washington, DC.</p></div>
+				  <div class="publication-entry"><p>Ajanel J. and Gousset K. (2019) Physiological Concentrations Of Hydrogen Peroxide And Glutamate, Induce Tunneling Nanotube Formation In Hela Cells. 40th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Ajanel, A., Xiong, Z., Pham, A., and Gousset, K. Chemical secreted by cancer cells, such as hydrogen peroxide and glutamate, induce tunneling nanotube formation in HeLa and neuronal CAD cells. California State University Summer Symposium, UCLA.</p></div>
+				  <div class="publication-entry"><p>Trujillo A., and Gousset K. (2019) The Role Of Mitochondrial Dna In Tunneling Nanotubes Formation In Rho Cells. 40th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Pham A., and Gousset K. (2019) Do Physiological Concentration Of Hydrogen Peroxide And Glutamate Affect The Expression Of Myosin X In Cancer Cells? 40th Annual Central California Research Symposium.</p></div>
+				  <div class="publication-entry"><p>Uhl J., and Gousset K. (2018) Fluorescence In Situ Hybridization (FISH) to Study the Role of Myo10 in TNTs. 39th Annual Central California Research Symposium.</p></div>
+                <div class="publication-entry"><p>Tovar M. and Gousset K. (2017) The proteolysis of Myo10, by Calpain, under low calcium conditions is activated by its FERM domain Acyl-CoA Binding Protein Motif. ASCB Annual Meeting, Philadelphia, PA.</p></div>
+                <div class="publication-entry"><p>Tipan P. and Gousset K. (2017) Development of <em>Pichia pastoris</em> as a model system for Myosin X-induced filopodia formation. 29th Annual CSU Biotechnology Symposium.</p></div>
+                <div class="publication-entry"><p>Gousset K., Gordon A., and Kannan S. (2016) Laser capture microdissection and microproteomics: a novel method to study the proteomes of cell protrusions. ASCB Annual Meeting, San Francisco, CA.</p></div>
+                <div class="publication-entry"><p>Tipan P. and Gousset K. (2016) Development of <em>Pichia pastoris</em> as a model system for Myosin X-induced filopodia formation. ASCB Annual Meeting, San Francisco, CA.</p></div>
+                <div class="publication-entry"><p>Kannan S. and Gousset K. (2016) Microproteomic analysis of laser capture microdissected cells forming TNTs. 37th Annual Central California Research Symposium.</p></div>
+                <div class="publication-entry"><p>Kannan S. and Gousset K. (2015) Microproteomic analysis of laser capture microdissected cells forming TNTs. Stanford University Mass Spectrometry Research Applications Symposium.</p></div>
+                <div class="publication-entry"><p>Gujarathi S. and Gousset K. (2015) Myosin-X is critical for functional HIV-1 Nef induced tunneling nanotubes (TNTs). ASCB Annual Meeting, San Diego, CA.</p></div>
+                <div class="publication-entry"><p>Gujarathi S. and Gousset K. (2015) HIV-1 Nef protein induces TNT formation in macrophages by up-regulation of Myo10. American Society for Virology Annual Meeting, London, Ontario, Canada.</p></div>
+                <div class="publication-entry"><p>Han S. and Gousset K. (2015) A Myo10 c-terminal fragment associates with components of messenger ribonucleoprotein (mRNP) complexes in the core nuclear region. 36th Annual Central California Research Symposium.</p></div>
+                <div class="publication-entry"><p>Gujarathi S. and Gousset K. (2015) HIV-1 Nef protein induces TNT formation in macrophages by up-regulation of Myo10. 36th Annual Central California Research Symposium.</p></div>
+                <div class="publication-entry"><p>Gujarathi S. and Gousset K. (2015) HIV-1 Nef protein induces TNT formation in macrophages by up-regulation of Myo10. 27th Annual CSU Biotechnology Symposium.</p></div>
+                <div class="publication-entry"><p>Han S. and Gousset K. (2015) Interaction of the FERM Domain of Myo10 with the Tumor Suppressor p53. 27th Annual CSU Biotechnology Symposium.</p></div>
+                <div class="publication-entry"><p>Gujarathi S. and Gousset K. (2014) Effect of Nef protein on TNT formation in macrophages. 35th Annual Central California Research Symposium.</p></div>
+                <div class="publication-entry"><p>Gousset K., Coren L.V., Ablan S., Ott D., and Freed E.O. (2006) Visualization of HIV-1 Gag trafficking in living cells in real time using the biarsenical-tetracysteine system. Cold Spring Harbor Retroviruses Conference.</p></div>
+                <div class="publication-entry"><p>Edidin M., Gousset K., Detre C., and Gheber L. (2006) Membrane domains: Probing the floating world. Abstracts of Papers of the American Chemical Society.</p></div>
+                <div class="publication-entry"><p>Gousset K., Demirov D.G., Goila-Gaur R., Kostelansky M.S., Beach B.M., Hurley J.H., and Freed E. (2005) The Role of ESCRT-I components in endosomal sorting and HIV-1 release. HIV Drug Resistance Symposium.</p></div>
+                <div class="publication-entry"><p>Tablin F., Gousset K., and Crowe J.H. (2004) Platelet lipid raft aggregation associated with cold storage: the role of lateral phase transition. <em>Arterioscler. Thromb. Vasc. Biol.</em></p></div>
+                <div class="publication-entry"><p>Gousset K., Tsvetkova N.M., Crowe John H., and Tablin F. (2001) Selective Partitioning of receptors and signaling molecules in raft membrane domains of human platelets. <em>Mol. Biol. Cell</em> 12.</p></div>
+                <div class="publication-entry"><p>Tablin F. and Gousset K. (2000) Membrane Rafts are a Key Physiological Event in Human Platelet Cold-Induced Activation. <em>Blood</em> 11.</p></div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="sidebar-stack" aria-label="Publication covers">
+            <div class="cover-frame">
+              <a href="Publications_files-largecover.gif">
+                <img src="Publications_files-largecover.png" alt="Publication cover art." />
+              </a>
+            </div>
+
+            <div class="cover-frame">
+              <a href="Publications_files-ncb0309-235.pdf">
+                <img src="Publications_files-ncb0309-235.png" alt="Nature Cell Biology cover." />
+              </a>
+            </div>
+
+            <div class="cover-frame">
+              <a href="Publications_files-Gousset_01.pdf">
+                <img src="Publications_files-Gousset_01.png" alt="Publication figure or cover." />
+              </a>
+            </div>
+
+            <div class="cover-frame">
+              <a href="Publications_files-Clotting_Cells_Switched_On_by_Cold.pdf">
+                <img src="Publications_files-Clotting_Cells_Switched_On_by_Cold.png" alt="Article cover or clipping." />
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a
+        href="http://www.fresnostate.edu/csm/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fresno State College of Science and Mathematics"
+      >
+        <img
+          class="footer-logo"
+          src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+          alt="Fresno State logo"
+        />
+      </a>
+    </div>
+	  <div>
+		  <center>
+			  <!-- Default Statcounter code for Gousset
+					http://zimmer.csufresno.edu/~kgousset/Gousset_Lab/Welcome.html
+					-->
+					<script type="text/javascript">
+					var sc_project=10020829; 
+					var sc_invisible=0; 
+					var sc_security="e5c0fd1b"; 
+					var scJsHost = "https://";
+					document.write("<sc"+"ript type='text/javascript' src='" +
+					scJsHost+
+					"statcounter.com/counter/counter.js'></"+"script>");
+					</script>
+					<noscript><div class="statcounter"><a title="Web Analytics
+					Made Easy - Statcounter" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/10020829/0/e5c0fd1b/0/"
+					alt="Web Analytics Made Easy - Statcounter"
+					referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+								  <!-- End of Statcounter Code -->
+		  </center>
+		  </div>
+  </footer>
+</body>
+</html>

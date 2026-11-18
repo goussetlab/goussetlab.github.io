@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karine Gousset, Ph.D. | Gousset Lab</title>
+  <meta
+    name="description"
+    content="Karine Gousset, Ph.D. Chair and Professor of Virology at California State University, Fresno."
+  />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+	  width: min(100% - 2rem, var(--max-width));
+	  margin: 0 auto;
+	}
+
+	.site-header {
+	  background: transparent;
+	  border-bottom: none;
+	  position: relative;
+	  top: auto;
+	  z-index: 100;
+	}
+
+	.header-inner {
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  display: block;
+	  padding: 0.5rem 0 0 0;
+	}
+
+	.site-title {
+	  margin: 0;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: 4.2rem;
+	  line-height: 1;
+	  font-weight: 800;
+	  letter-spacing: -0.03em;
+	  color: #555555;
+	}
+
+	.site-title span:last-child {
+	  color: #a9a9a9;
+	  font-weight: 700;
+	}
+
+	.nav {
+	  margin: 0;
+	}
+
+	.nav ul {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 0;
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: 1.1rem;
+	  font-weight: 700;
+	  line-height: 1.2;
+	}
+
+	.nav li {
+	  margin: 0;
+	  padding: 0 2.1rem 0 0;
+	}
+
+	.nav a {
+	  color: #9a9a9a;
+	  text-decoration: none;
+	}
+
+	.nav a:visited {
+	  color: #9a9a9a;
+	}
+
+	.nav a:hover {
+	  color: #cc0000;
+	}
+
+	.nav a[aria-current="page"] {
+	  color: #666666;
+	}
+
+    .hero {
+	  position: relative;
+	  width: min(100%, 1000px);
+	  aspect-ratio: 1000 / 600;
+	  margin: 0 auto;
+	  overflow: hidden;
+	}
+
+	.hero-image {
+	  width: 100%;
+	  height: 100%;
+	  display: block;
+	  object-fit: cover;
+	}
+	  
+	.hero-name {
+	  position: absolute;
+	  left: 6%;
+	  bottom: 2%;
+	  z-index: 2;
+
+	  color: #ffffff;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: clamp(1.5rem, 2.5vw, 3.2rem);
+	  font-weight: 700;
+	  line-height: 1;
+	}
+
+    .caption {
+	  font-size: 0.62rem;
+	  color: #666666;
+	  text-align: left;
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  padding: 0.2rem 0 0;
+	  line-height: 1.15;
+	}
+	  
+	.site-footer {
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  padding: 2rem 0 3rem;
+	}
+
+	.footer-inner {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	}
+
+	.footer-logo {
+	  width: 100px;
+	  height: auto;
+	}
+
+    main {
+      padding: 1.25rem 0 4rem;
+    }
+
+    .welcome-title {
+      width: min(100%, 1000px);
+      margin: 0 auto 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      color: #222;
+    }
+
+    .welcome-layout {
+	  display: grid;
+	  grid-template-columns: minmax(0, 1fr) 220px;
+	  gap: 2rem;
+	  align-items: start;
+	}
+
+    .welcome-main {
+      min-width: 0;
+    }
+
+    .contact-block {
+	  font-size: 1rem;
+	  line-height: 1.12;
+	  margin-bottom: 1.5rem;
+	}
+
+	.contact-block p {
+	  margin: 0 0 0.12rem;
+	}
+
+	.contact-block .spacer {
+	  margin-top: 0.9rem;
+	}
+
+    .section {
+	  margin-top: 2.5rem;
+	}
+
+	.section h2 {
+	  margin: 0 0 1rem;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: 1.4rem;
+	  border-bottom: 2px solid var(--border);
+	  padding-bottom: 0.4rem;
+	}
+
+    .research-text {
+      margin: 0;
+    }
+
+    .welcome-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .portrait {
+	  width: 197px;
+	  background: #ffffff;
+	  border: 2px solid #eeeeee;
+	  padding: 0;
+	  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+	}
+
+    .portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .welcome-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome-side {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .welcome-title {
+        margin-bottom: 0.75rem;
+      }
+
+      .contact-block {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="Welcome.html" aria-current="page">Welcome</a></li>
+          <li><a href="About_Me.html">About Me</a></li>
+          <li><a href="Lab_Members.html">Lab Members</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="TNT_Movies.html">TNT Movies</a></li>
+          <li><a href="Links.html">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<section class="hero" aria-label="Featured laboratory image">
+  <img class="hero-image" src="Welcome_files-shapeimage_1.png" alt="TNT network between CAD cells." />
+
+  <div class="hero-name">
+    Karine Gousset, Ph.D.
+  </div>
+</section>
+
+  <p class="caption">
+    TNT network between CAD cells. 3D image from NCB Cover March 2009. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+  <section class="welcome-layout" aria-label="Welcome and contact information">
+      <div class="welcome-main">
+        <div class="contact-block">
+          <p>Chair &amp; Professor of Virology</p>
+          <p>Department of Biology</p>
+          <p>College of Science and Mathematics</p>
+          <p>California State University, Fresno</p>
+          <p>2555 East San Ramon Avenue M/S SB73</p>
+          <p>Fresno, CA 93740-8034</p>
+
+          <p class="spacer">Lab Location: Science I 107</p>
+          <p>Office Location: Science I 114B</p>
+
+          <p class="spacer"><a href="mailto:kgousset@csufresno.edu">kgousset@csufresno.edu</a></p>
+          <p>(559) 278-5802 (Office)</p>
+          <p>(559) 278-4044 (Lab)</p>
+          <p>(559) 278-3963 Fax</p>
+        </div>
+
+        <section class="section" aria-labelledby="research-heading">
+		  <h2 id="research-heading">Research Interests</h2>
+		  <p class="research-text">
+			The main interest of my lab is in the study of host-pathogen interactions and viral pathogenesis from the perspective of a cell and molecular biologist. More specifically, the focus of my laboratory is on the role of tunneling nanotubes, a novel mechanism of functional connectivity between cells, in the spreading of viruses, misfolded protein aggregates (leading to neurodegenerative diseases), as well as the role they may play in the proliferation and persistence of cancer. My lab is currently using techniques from bioinformatics, proteomics, structural biology, evolutionary biology, molecular biology, cell biology, and virology to help uncover these underlying mechanisms.
+		  </p>
+		</section>
+      </div>
+
+      <aside class="welcome-side" aria-label="Portrait and affiliation">
+        <div class="portrait">
+          <img src="Welcome_files-Medium-size.jpg" alt="Portrait of Karine Gousset" />
+        </div>
+      </aside>
+    </section>
+  </main>
+	  <footer class="site-footer">
+	  <div class="footer-inner">
+		<a
+		  href="http://www.fresnostate.edu/csm/"
+		  target="_blank"
+		  rel="noopener noreferrer"
+		  aria-label="Fresno State College of Science and Mathematics"
+		>
+		  <img
+			class="footer-logo"
+			src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+			alt="Fresno State logo"
+		  />
+		</a>
+	  </div>
+	  <div>
+		  <center>
+			  <!-- Default Statcounter code for Gousset
+					http://zimmer.csufresno.edu/~kgousset/Gousset_Lab/Welcome.html
+					-->
+					<script type="text/javascript">
+					var sc_project=10020829; 
+					var sc_invisible=0; 
+					var sc_security="e5c0fd1b"; 
+					var scJsHost = "https://";
+					document.write("<sc"+"ript type='text/javascript' src='" +
+					scJsHost+
+					"statcounter.com/counter/counter.js'></"+"script>");
+					</script>
+					<noscript><div class="statcounter"><a title="Web Analytics
+					Made Easy - Statcounter" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/10020829/0/e5c0fd1b/0/"
+					alt="Web Analytics Made Easy - Statcounter"
+					referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+								  <!-- End of Statcounter Code -->
+		  </center>
+		  </div>
+	</footer>
+</body>
+</html>

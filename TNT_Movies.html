@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TNT Movies | Gousset Lab</title>
+  <meta
+    name="description"
+    content="Tunneling nanotubes in motion: movie examples from the Gousset Lab."
+  />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: transparent;
+      border-bottom: none;
+      position: relative;
+      top: auto;
+      z-index: 100;
+    }
+
+    .header-inner {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      display: block;
+      padding: 0.5rem 0 0 0;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #555555;
+    }
+
+    .site-title span:last-child {
+      color: #a9a9a9;
+      font-weight: 700;
+    }
+
+    .nav {
+      margin: 0;
+    }
+
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .nav li {
+      margin: 0;
+      padding: 0 2.1rem 0 0;
+    }
+
+    .nav a {
+      color: #9a9a9a;
+      text-decoration: none;
+    }
+
+    .nav a:visited {
+      color: #9a9a9a;
+    }
+
+    .nav a:hover {
+      color: #cc0000;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #666666;
+    }
+
+    .hero-short {
+      position: relative;
+      width: min(100%, 1000px);
+      min-height: 140px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .hero-short-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-short-overlay {
+      position: relative;
+      z-index: 2;
+      padding: 1.1rem 1.5rem 1rem;
+      color: #ffffff;
+    }
+
+    .hero-short-quote {
+      max-width: 860px;
+      font-size: clamp(1rem, 1.25vw, 1.6rem);
+      line-height: 1.25;
+	  color: #FFFFFF;
+      margin: 0;
+    }
+
+    .hero-short-cite {
+      margin: 0.35rem 0 0;
+      text-align: right;
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    }
+
+    .hero-short-title {
+      margin: 0.5rem 0 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .caption {
+      font-size: 0.62rem;
+      color: #666666;
+      text-align: left;
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 0.2rem 0 0;
+      line-height: 1.15;
+    }
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .content-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 2rem 0;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+      margin-top: 1.75rem;
+    }
+
+    .movie-embed {
+	  background: #000;
+	  border: 2px solid #eeeeee;
+	  padding: 4px;
+	  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+	}
+
+	.movie-embed iframe {
+	  display: block;
+	  width: 100%;
+	  aspect-ratio: 313 / 250;
+	  height: auto;
+	  border: 0;
+	}
+
+    .movie-text h3 {
+      margin: 0 0 0.6rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.1rem;
+      color: #222;
+    }
+
+    .movie-text p {
+      margin: 0;
+    }
+
+    .site-footer {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 820px) {
+      .movie-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .content-card {
+        padding: 1.25rem 0;
+      }
+
+      .hero-short-overlay {
+        padding: 0.9rem 1rem 0.85rem;
+      }
+
+      .hero-short-cite {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="Welcome.html">Welcome</a></li>
+          <li><a href="About_Me.html">About Me</a></li>
+          <li><a href="Lab_Members.html">Lab Members</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="TNT_Movies.html" aria-current="page">TNT Movies</a></li>
+          <li><a href="Links.html">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-short" aria-label="Featured TNT quote and title">
+    <img
+      class="hero-short-image"
+      src="TNT_Movies_files-shapeimage_1.png"
+      alt="TNT microscope image."
+    />
+    <div class="hero-short-overlay">
+      <p class="hero-short-quote">
+        &#8220;No amount of experimentation can ever prove me right; a single experiment can prove me wrong.&#8220;
+      </p>
+      <p class="hero-short-cite">Albert Einstein</p>
+      <h1 class="hero-short-title">TNT Movies</h1>
+    </div>
+  </section>
+
+  <p class="caption">
+    Gousset et al., J Cell Sci. 2013 Jul 25. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+    <article class="content-card">
+      <section class="section" aria-labelledby="movies-heading">
+        <h2 id="movies-heading">Tunneling Nanotubes in Motion</h2>
+
+        <div class="movie-grid">
+  <div class="movie-embed">
+    <iframe
+      width="313"
+      height="250"
+      src="https://www.youtube.com/embed/jGdGNojcDQk"
+      title="Movie 1. Movement of GFP-Myo10 within TNTs"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="movie-text">
+    <h3>Movie 1. Movement of GFP-Myo10 within TNTs</h3>
+    <p>
+      CADs cells transiently transfected with GFP-Myo10 for 24 hrs were imaged in a temperature and CO2 controlled chamber with a microscope confocal Revolution Nipkow spinning-disk imaging system (Andor Technology). Every 30 sec, multiple Z-stacks were acquired and projections were obtained for each time point using the ImageJ software. Over time, GFP-Myo10 can be seen moving back and forth within TNTs. Gousset et al., J Cell Sci. 2013 Jul 25.
+    </p>
+  </div>
+</div>
+
+        <div class="movie-grid">
+          <div class="movie-embed">
+			  <iframe
+				width="313"
+				height="250"
+				src="https://www.youtube.com/embed/c24tbgrywIE"
+				title="Movie 2. Cell-to-cell detachment mechanism of TNT formation in CAD cells"
+				frameborder="0"
+				allowfullscreen
+			  ></iframe>
+			</div>
+          <div class="movie-text">
+            <h3>Movie 2. Cell-to-cell detachment mechanism of TNT formation in CAD cells</h3>
+            <p>
+              Unlabeled CAD cells were put into the incubation chamber of a Biostation IM from Nikon for time-lapse analysis. Phase contrast images were taken every minute for 12 hours. Over time, multiple TNTs resulting from cell-to-cell detachments can be observed. Gousset et al., J Cell Sci. 2013 Jul 25.
+            </p>
+          </div>
+        </div>
+
+        <div class="movie-grid">
+          <div class="movie-embed">
+			  <iframe
+				width="313"
+				height="250"
+				src="https://www.youtube.com/embed/yWqrBUs8hrk"
+				title="Movie 3. Filopodia-driven mechanism of TNT formation in CAD cells"
+				frameborder="0"
+				allowfullscreen
+			  ></iframe>
+			</div>
+          <div class="movie-text">
+            <h3>Movie 3. Filopodia-driven mechanism of TNT formation in CAD cells</h3>
+            <p>
+              CAD cells were labeled with 5-carboxytetramethylrhodamine succinimidyl-ester (for membrane labeling) for 1h at 37°C and imaged over time, every 30 sec for 40 minutes with a microscope confocal Revolution Nipkow spinning-disk imaging system (Andor Technology). For each time point, multiple Z-stacks were acquired. Because of the movement of the cells, Z-stacks required readjustments over time and this movie was made from concatenated movies. Projections were obtained for each time point using the ImageJ software. Over time, the dorsal filopodia can be seen moving toward the acceptor cells. After TNT attachment, the structure remained stable for hours. Gousset et al., J Cell Sci. 2013 Jul 25.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a
+        href="http://www.fresnostate.edu/csm/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fresno State College of Science and Mathematics"
+      >
+        <img
+          class="footer-logo"
+          src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+          alt="Fresno State logo"
+        />
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

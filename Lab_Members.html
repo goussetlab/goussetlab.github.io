@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Members | Gousset Lab</title>
+  <meta
+    name="description"
+    content="Current and former members of the Gousset Lab."
+  />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: transparent;
+      border-bottom: none;
+      position: relative;
+      top: auto;
+      z-index: 100;
+    }
+
+    .header-inner {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      display: block;
+      padding: 0.5rem 0 0 0;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 4.2rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #555555;
+    }
+
+    .site-title span:last-child {
+      color: #a9a9a9;
+      font-weight: 700;
+    }
+
+    .nav {
+      margin: 0;
+    }
+
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .nav li {
+      margin: 0;
+      padding: 0 2.1rem 0 0;
+    }
+
+    .nav a {
+      color: #9a9a9a;
+      text-decoration: none;
+    }
+
+    .nav a:visited {
+      color: #9a9a9a;
+    }
+
+    .nav a:hover {
+      color: #cc0000;
+    }
+
+    .nav a[aria-current="page"] {
+      color: #666666;
+    }
+
+    .hero {
+      position: relative;
+      width: min(100%, 1000px);
+      aspect-ratio: 1000 / 600;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-quote-mark {
+      position: absolute;
+      left: -0.2em;
+      top: -0.30em;
+      z-index: 2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 10vw, 11.25rem);
+      line-height: 1;
+      color: #999999;
+      pointer-events: none;
+    }
+
+    .hero-quote {
+      position: absolute;
+      left: 42%;
+      top: 60%;
+      width: 50%;
+      z-index: 2;
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .hero-quote p {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-quote p:first-of-type {
+      font-size: clamp(0.95rem, 2.2vw, 1.5rem);
+      line-height: 1.28;
+    }
+
+    .hero-cite {
+      margin-top: 0.75rem;
+      font-size: clamp(1.15rem, 2.5vw, 1.75rem);
+    }
+
+    .caption {
+      font-size: 0.62rem;
+      color: #666666;
+      text-align: left;
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 0.2rem 0 0;
+      line-height: 1.15;
+    }
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .content-card {
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 2rem 0;
+    }
+
+    .lead p:first-child {
+      margin-top: 0;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+	  
+	.alumni-note {
+	  color: #b22f0f;
+	}
+
+    .member-group {
+      margin-top: 1.5rem;
+    }
+
+    .member-group h3 {
+      margin: 0 0 0.75rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.15rem;
+      color: #222;
+    }
+
+    .member-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .member-entry {
+	  padding-left: 1rem;
+	  border-left: 3px solid var(--border);
+	  line-height: 1;
+	}
+
+    .member-entry strong {
+	  display: block;
+	  margin: 0;
+	  line-height: 1;
+	}
+
+    .member-entry small {
+	  display: block;
+	  color: var(--muted);
+	  margin-top: 0.05rem;
+	  line-height: 1;
+	}
+
+    .member-entry p {
+	  margin: 0.2rem 0 0;
+	  line-height: 1;
+	}
+
+    .photo-block {
+      margin: 0 0 1rem;
+    }
+
+    .photo-frame {
+      background: #ffffff;
+      border: 2px solid #eeeeee;
+      padding: 4px;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .photo-grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .photo-grid-two .photo-frame img,
+    .photo-block .photo-frame img {
+      width: 100%;
+      height: auto;
+    }
+
+    .photo-caption {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    .site-footer {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .content-card {
+        padding: 1.25rem 0;
+      }
+
+      .photo-grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="Welcome.html">Welcome</a></li>
+          <li><a href="About_Me.html">About Me</a></li>
+          <li><a href="Lab_Members.html" aria-current="page">Lab Members</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="TNT_Movies.html">TNT Movies</a></li>
+          <li><a href="Links.html">Links</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Featured quote">
+    <img class="hero-image" src="Lab_Members_files-shapeimage_1.png" alt="CAD cells connected by a network of TNTs." />
+
+    <div class="hero-quote">
+      <div class="hero-quote-mark">&#8220;</div>
+      <p>
+        Life is not easy for any of us. But what of that? We must have perseverance and above all confidence in ourselves. We must believe that we are gifted for something and that this thing must be attained.
+      </p>
+      <p class="hero-cite">Marie Curie</p>
+    </div>
+  </section>
+
+  <p class="caption">
+    CAD cells connected by a network of TNTs. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+    <article class="content-card">
+      <section class="lead" aria-labelledby="lab-members-heading">
+
+        <h2 id="lab-members-heading">Current Lab Members</h2>
+
+        <div class="member-group">
+		  <h3>Graduate Students</h3>
+		  <div class="member-list">
+			<div class="member-entry">
+			  <strong>Dylan Tanner</strong>
+			  <small>Biology</small>
+			</div>
+		  </div>
+		</div>
+
+		<div class="member-group">
+		  <h3>Undergraduate Students</h3>
+		  <div class="member-list">
+			<div class="member-entry">
+			  <strong>Palak Tohan</strong>
+			  <small>Biology</small>
+			</div>
+			<div class="member-entry">
+			  <strong>Yashdeep Grewal</strong>
+			  <small>Biology</small>
+			</div>
+		  </div>
+		</div>
+
+        <div class="member-group">
+          <h2>Lab Alumni <span class="alumni-note">(Where they are now)</span></h2>
+          <div class="member-list">
+			<div class="member-entry">
+              <strong>Ana Ramirez Perez, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Attending the University of California, Davis as a Ph.D. Candidate</span></b></p>
+				<p>2025 Poster and Abstract on &#8220;Determining the Role of L-Plastin in Tunneling Nanotube Formation&#8221; at the CSU Biotechnology Symposium.</p>
+				<p>2025 Poster and Oral Presentation on &#8220;Exploring the Role of L-plastin in the Formation of Tunneling Nanotubes.&#8221; at the Central California Research Symposium; won UCSF Outstanding Graduate Oral Presentation.</p>
+              <p>2024 CCRS Poster and Oral Presentation on &#8220;Analyzing the Role of L-Plastin in the Formation of Tunneling Nanotubes&#8221; at the Central California Research Symposium; won UCSF Honorable Mention Graduate Oral Presentation.</p>
+			  <p>2024/2025 CSU Fresno, Department of Biology Outstanding Thesis Award Winner</p>
+            </div>
+			<div class="member-entry">
+              <strong>Ramandeep Kaur, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Associate Researcher, 1Cell.Ai Inc.</span></b></p>
+				<p>2024 Poster and Oral Presentation on &#8220;Role of Lactate Dehydrogenase B in the formation of tunneling Nanotubes (TNTs)&#8221; at the Central California Research Symposium.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Destiny Ortiz, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p>2024 Poster and Oral Presentation on &#8220;Effect of Fixation on Immunofluorescence&#8221; at the Central California Research Symposium; won an Honorable Mention for her oral presentation.</p>
+				<p>NSF LSAMP Scholar.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Ajmeet Pama-Ghuman, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Attending UCSF School of Medicine.</span></b></p>
+				<p>2024 Poster and Oral Presentation on &#8220;Characterization of the Transcriptomes of Specific Subtypes of Cellular Protrusions Isolated by Laser Capture Microdissection&#8221; at the Central California Research Symposium; won an Honorable Mention for her oral presentation.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Vinita Raj, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Emergency Medicine Scribe, UCSF Fresno</span></b></p>
+            </div>
+		    <div class="member-entry">
+              <strong>Rutva Rajput, MS Biotechnology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Research Associate II, Nitto BioPharma</span></b></p>
+				<p><b><span class="alumni-note">Scientist (Protein Expression and Purification), Evotec</span></b></p>
+				<p><b><span class="alumni-note">Research Associate, Immuno-epigenetics (Co-op), Moderna</span></b></p>
+              <p>2022/2023 FSSRA Award winner.</p>
+            </div>
+			 <div class="member-entry">
+              <strong>Michelle Patterson, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Bioscience Account Manager III, Thermo Fisher Scientific</span></b></p>
+              <p>2018/2019 FSSRA Award winner.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Daniel Savala, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Fresno State/UC Davis Bridges to Doctorate Program</span></b></p>
+				<p>2023 Poster and Abstract on &#8220;Exploring the Role of Protein-X in Tunneling Nanotube Formation&#8221; at the CSU Biotechnology Symposium.</p>
+				<p>2022 Poster and Oral Presentation on &#8220;Exploring the Role of Protein-X in Tunneling Nanotube Formation&#8221; at the Central California Research Symposium.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Noe Green, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Attending the Arizona State University as a Ph.D. Candidate</span></b></p>
+				<p>2022 Poster and Oral Presentation on &#8220;How does the expression of Protein X influence Tunneling Nanotube formation in neuronal cells?&#8221; at the Central California Research Symposium.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Nicolas Putnam, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Product Applications Specialist III, Thermo Fisher Scientific</span></b></p>
+				<p><b><span class="alumni-note">Product Applications Specialist II, Thermo Fisher Scientific</span></b></p>
+				<p>2021 Poster and Oral Presentation on &#8220;Antimycin A Leads to the Upregulation of Myo10 and Tunneling Nanotube Formation&#8221; at the Central California Research Symposium.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Alan Pham, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Attending UCSF School of Medicine.</span></b></p>
+				<p>2019 ASCB Poster and Abstract for &#8220;Physiological Concentrations of Hydrogen Peroxide and Glutamate, Induce Tunneling Nanotube Formation in Hela and Cad Cells.&#8221;</p>
+				<p>2019 Poster and Oral Presentation on &#8220;Do Physiological Concentration Of Hydrogen Peroxide And Glutamate Affect The Expression Of Myosin X In Cancer Cells?&#8221; at the Central California Research Symposium.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Paria Azami, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Biology Instructor, Reedley College</span></b></p>
+				<p><b><span class="alumni-note">Attending the University of California, Riverside as a Ph.D. Candidate</span></b></p>
+				<p>2020 Poster and Oral Presentation on &#8220;The Role of CD7 Protein in Tunneling Nanotube Formation&#8221; at the Central California Research Symposium.</p>
+              <p>2019/2020 FSSRA Award winner for &#8220;The importance of the mitochondria in TNT formation and function.&#8221;</p>
+            </div>
+			<div class="member-entry">
+              <strong>Zoua Xiong, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p>2019 ASCB Poster and Abstract for &#8220;Physiological Concentrations of Hydrogen Peroxide and Glutamate, Induce Tunneling Nanotube Formation in Hela and Cad Cells.&#8221;</p>
+            </div>
+            <div class="member-entry">
+              <strong>Andreina Trujillo Banuelos, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Scientist I, Cytek BioScience, Fremont, CA.</span></b></p>
+				<p>2019 Poster and Oral Presentation on &#8220;The Role Of Mitochondrial Dna In Tunneling Nanotubes Formation In Rho Cells&#8221; at the Central California Research Symposium.</p>
+              <p>2017/2018 FSSRA Award winner for &#8220;The importance of the mitochondria in TNT formation and function.&#8221;</p>
+              <p>2017/2018 Graduate Net Initiative Award winner for &#8220;CRISPR/Cas9-mediated fluorescent tagging of endogenous Myosin-X in a stable neuronal cell line.&#8221;</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Abigail Ajanel, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p><b><span class="alumni-note">Attending Washington University in St. Louis as a Ph.D. candidate.</span></b></p>
+			  <p><b><span class="alumni-note">Attended University of Utah as a Ph.D. candidate.</span></b></p>
+				<p>2020 Poster and Oral Presentation on &#8220;The Effect of Hydrogen Peroxide and Glutamate on Myosin-X expression and TNT Formation.&#8221; at the Central California Research Symposium.</p>
+				<p>2019 ASCB Poster and Abstract for &#8220;Physiological Concentrations of Hydrogen Peroxide and Glutamate, Induce Tunneling Nanotube Formation in Hela and Cad Cells.&#8221;</p>
+				<p>2019 Poster and Oral Presentation on &#8220;Physiological Concentrations Of Hydrogen Peroxide And Glutamate, Induce Tunneling Nanotube Formation In Hela Cells&#8221; at the Central California Research Symposium; won Honorable Mention Oral Presentation.</p>
+              <p>2018/2019 FSSRA Award winner.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Tariq Sakoury, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Physician Assistant, Inspire Health Mdical Group, Fresno, CA.</span></b></p>
+              <p>2018/2019 FSSRA Award winner.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Jaime Uhl, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Graduated SUNY Upstate Medical University CLS</span></b></p>
+				<p>2018 Poster and Oral Presentation on &#8220;Fluorescence In Situ Hybridization (FISH) to Study the Role of Myo10 in TNTs&#8221; at the Central California Research Symposium.</p>
+              <p>2018/2019 FSSRA Award winner.</p>
+              <p>2017/2018, 2016/2017 Graduate Net Initiative Award winner for &#8220;CRISPR/Cas9-mediated fluorescent tagging of endogenous Myosin-X in a stable neuronal cell line.&#8221;</p>
+              <p>2017/2018 and 2016/2017 FSSRA Award winner.</p>
+            </div>
+			<div class="member-entry">
+              <strong>Joanna De La Pena, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Program Supervisor, Think Togehter, Sacramento, CA.</span></b></p>
+				<p><b><span class="alumni-note">Attended the University of California, Davis as a Ph.D. Candidate</span></b></p>
+			   <p>NSF LSAMP Scholar.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Noah Contreras, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Graduated Kaiser Permanente Bernard J. Tyson School of Medicine.</span></b></p>
+              <p>2018/2019 FSSRA Award winner.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Maeghan Tovar</strong>
+              <small>Sierra High School (Graduated)</small>
+			  <p><b><span class="alumni-note">Software Engineer, Atlassian</span></b></p>
+              <p><b><span class="alumni-note">Graduated from Stanford University with a B.S. in Computer Science</span></b></p>
+              <p>2018 ASCB Poster and Abstract for &#8220;The proteolysis of Myo10, by Calpain, under low calcium conditions is activated by its FERM domain Acyl-CoA Binding Protein Motif.&#8221;</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Pablo Guaman Tipan, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Attending University of Texas at Austin as a Ph.D. candidate.</span></b></p>
+              <p><b><span class="alumni-note">Staff Research Associate I, Lab of Dr. Daniele Piomelli, UC Irvine, CA.</span></b></p>
+              <p>2017/2018 FSSRA Award winner for &#8220;Development of Pichia pastoris as a model system for Myosin X-induced filopodia formation.&#8221;</p>
+              <p>2017 CCRS Poster and Abstract, 2016 ASCB Poster and Abstract, 2016 CSU Biotechnology Symposium Poster and Abstract, and 2016 CSUPERB Presidents&#8217; Commission Scholars Award winner.</p>
+              <p>2016/17 CSU Fresno Undergraduate Research Awardee.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Puneet Sran, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p><b><span class="alumni-note">Graduated from UC Davis School of Medicine.</span></b></p>
+              <p>2017 CCRS Poster and Abstract for &#8220;Interaction of Myosin-X with mRNP Complexes.&#8221;</p>
+              <p>2016/17 CSU Fresno Undergraduate Research Awardee for &#8220;Interactions of Myosin-X with nuclear and mRNP complex proteins.&#8221;</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Dr. Ana Gordon</strong>
+              <small>Post-Doctoral Fellow</small>
+              <p>Fundaci&oacute;n Mart&iacute;n Escudero (Spain) Post-Doctoral Fellow, 2016&#8211;2018.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Chinka Pruthi, MS Biotechnology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Scientist I, AbbVie</span></b></p>
+			  <p><b><span class="alumni-note">Associate Scientist II, AbbVie</span></b></p>
+              <p>2013/2014 FSSRA Award winner for &#8220;The formation of TNTs in macrophages.&#8221;</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Cameron Saunders, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+            </div>
+
+            <div class="member-entry">
+              <strong>Vivian Lo, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p><b><span class="alumni-note">I3 Institute Scholar, University of Pittsburgh School of Information Sciences.</span></b></p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Ellen Douglass, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+            </div>
+
+            <div class="member-entry">
+              <strong>Lesly Pereira-Fita, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Quality Assurance Manager/Project Manager, Twin Arbor Labs</span></b></p>
+				<p><b><span class="alumni-note">Adjunct Faculty, Allan Hancock College</span></b></p>
+				<p><b><span class="alumni-note">Adjunct Faculty Instructor, Reedley College</span></b></p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Vinisha Prajapati</strong>
+              <small>Clovis North High School</small>
+			  <p><b><span class="alumni-note">Attending the University of Illinois College of Law.</span></b></p>
+			  <p><b><span class="alumni-note">Graduated from Penn State University.</span></b></p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Maria Silvia Melgarejo, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p><b><span class="alumni-note">Post Baccalaureate Program, CSU East Bay.</span></b></p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Rachel Lee Nelson, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p>NSF LSAMP Scholar.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Michelle Cha</strong>
+              <small>Clovis West High School</small>
+            </div>
+
+            <div class="member-entry">
+              <strong>Shivalee Gujarathi, MS Biotechnology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Senior Manager, Guardant Health, San Marcos, CA.</span></b></p>
+			  <p><b><span class="alumni-note">Senior Clinical Trial Manager, Guardant Health, San Marcos, CA.</span></b></p>
+		      <p><b><span class="alumni-note">Clinical Trial Manager, Guardant Health, San Marcos, CA.</span></b></p>
+			  <p><b><span class="alumni-note">Senior Clinical Research Associate, Thermo Fisher Scientific, Carlsbad, CA.</span></b></p>
+			  <p><b><span class="alumni-note">Scientist III, Molecular Biology, Thermo Fisher Scientific, Carlsbad, CA.</span></b></p>
+              <p><b><span class="alumni-note">Scientist II, Molecular Biology, Thermo Fisher Scientific, Carlsbad, CA.</span></b></p>
+              <p>2015 CCRS Poster and Abstract, 2015 CSU Biotechnology Symposium Poster and Abstract, 2014/2015 FSSRA Award winner, 2014 CCRS Poster and Abstract, and 2013/2014 FSSRA Award winner for HIV-1 Nef/TNT-related projects.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Stacy Han, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+				<p><b><span class="alumni-note">Assistant Professor, Medicine, UCSF School of Medicine</span></b></p>
+              <p><b><span class="alumni-note">Graduated from UCSF School of Medicine.</span></b></p>
+              <p>2015 CSU Fresno Department of Biology Outstanding Undergraduate Award.</p>
+              <p>2015 CCRS Poster and Abstract, 2015 CSU Biotechnology Symposium Poster and Abstract, 2014/2015 FSSRA Award winner, 2013/2014 FSSRA Award winner, and 2014 CSU Fresno Undergraduate Research Awardee for Myo10/FERM domain projects.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Shahana Saadat Farooqi</strong>
+              <small>Summer Undergraduate Research Fellow</small>
+			  <p><b><span class="alumni-note">Attending UC Berkeley School of Law (JD expected May 2026)</span></b></p>
+              <p><b><span class="alumni-note">Graduated UC Berkeley, B.A. in Public Health.</span></b></p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Maria Mendoza, BS and MS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p><b><span class="alumni-note">Switched to a Microbiology focused lab.</span></b></p>
+              <p>NIH CSU Fresno/UC Merced Bridges to Doctorate Program Scholar and NSF LSAMP Scholar.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Joselyn Navarrette, BS Biology</strong>
+              <small>Biology (Graduated)</small>
+              <p>2016/2017 FSSRA Award winner and 2016/17 CSU Fresno Undergraduate Research Awardee for HIV-1 Nef/TNT projects.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Rekha Rangan, BS Biology</strong>
+              <small>Biology (Honors Program) (Graduated)</small>
+			  <p><b><span class="alumni-note">Senior Medical Writer, Avant Healthcare</span></b></p>
+			  <p><b><span class="alumni-note">Medical Writer, Avant Healthcare</span></b></p>
+			  <p><b><span class="alumni-note">Research Engineering/Scientist Associate I and Lab Manager, UT Texas at Austin</span></b></p>
+			  <p><b><span class="alumni-note">Research Engineering/Scientist Associate II and Lab Manager, UT Texas at Austin</span></b></p>
+		      <p><b><span class="alumni-note">Research Technician, Allergan</span></b></p>
+              <p><b><span class="alumni-note">Graduated UC Irvine, M.S. in Biology.</span></b></p>
+              <p>2017 CCRS Poster and Abstract and 2016/17 CSU Fresno Undergraduate Research Awardee for Myosin-X projects.</p>
+            </div>
+
+            <div class="member-entry">
+              <strong>Shravan Kannan, MS Biology</strong>
+              <small>Biology (Graduated)</small>
+			  <p><b><span class="alumni-note">Attending the University of Iowa as a Ph.D. Candidate</span></b></p>
+              <p><b><span class="alumni-note">Research Associate, Dynavax, Berkeley, CA.</span></b></p>
+              <p>2016 ASCB Poster and Abstract, 2016 CCRS Poster and Abstract, 2016 CSU Biotechnology Symposium Poster and Abstract, 2015 Stanford University Mass Spectrometry Research Applications Symposium, and 2015 CCRS Poster and Abstract for microproteomics and Myo10 projects.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2833.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2828.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2832.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2825.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-P1010029.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-P1010011.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-P1010026.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-P1010019.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2835_2.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_2834_2.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+
+        <div class="photo-grid-two">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_1723.jpg" alt="Lab member event photo." />
+          </div>
+          <div class="photo-frame">
+            <img src="Lab_Members_files-IMG_1722.jpg" alt="Lab member event photo." />
+          </div>
+        </div>
+		  
+		  <div class="photo-block section">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-Screen_Shot_2021-06-03_at_7.25.33_PM.jpg" alt="Gousset Lab group photo, Fall 2020." />
+          </div>
+          <p class="photo-caption">
+            Fall 2020, from top left to bottom right: Dr. Gousset, Paria, Nicolas, Bridget, Alan, Vinita, Zoua.
+          </p>
+        </div>
+
+        <div class="photo-block section">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-droppedImage.jpg" alt="Gousset Lab group photo, Fall 2018." />
+          </div>
+          <p class="photo-caption">
+            Fall 2018, from bottom left to top right: Alan, Andreina, Zoua, Abigail, Dr. Gousset, Paria, and Tariq.
+          </p>
+        </div>
+
+        <div class="photo-block">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-unknown.jpg" alt="Gousset Lab group photo, Fall 2017." />
+          </div>
+          <p class="photo-caption">
+            Fall 2017, from left to right: Puneet, Pablo, Dr. Ana Gordon, Dr. Gousset, Jaime, and Andreina.
+          </p>
+        </div>
+
+        <div class="photo-block">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-Lab_Photo.jpg" alt="Gousset Lab group photo, Fall 2016." />
+          </div>
+          <p class="photo-caption">
+            Fall 2016, from left to right: Jaime, Dr. Ana Gordon, Shravan, Dr. Gousset, Rekha, Pablo, Puneet, and Joselyn.
+          </p>
+        </div>
+
+        <div class="photo-block">
+          <div class="photo-frame">
+            <img src="Lab_Members_files-droppedImage_1.jpg" alt="Gousset Lab group photo, Fall 2015." />
+          </div>
+          <p class="photo-caption">
+            Fall 2015, from left to right: Pablo, Lee, Maria, Stacy, Shivalee, Dr. Gousset, Joselyn, Rekha, and Shravan.
+          </p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a
+        href="http://www.fresnostate.edu/csm/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Fresno State College of Science and Mathematics"
+      >
+        <img
+          class="footer-logo"
+          src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+          alt="Fresno State logo"
+        />
+      </a>
+    </div>
+	<div>
+		  <center>
+			  <!-- Default Statcounter code for Gousset
+					http://zimmer.csufresno.edu/~kgousset/Gousset_Lab/Welcome.html
+					-->
+					<script type="text/javascript">
+					var sc_project=10020829; 
+					var sc_invisible=0; 
+					var sc_security="e5c0fd1b"; 
+					var scJsHost = "https://";
+					document.write("<sc"+"ript type='text/javascript' src='" +
+					scJsHost+
+					"statcounter.com/counter/counter.js'></"+"script>");
+					</script>
+					<noscript><div class="statcounter"><a title="Web Analytics
+					Made Easy - Statcounter" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/10020829/0/e5c0fd1b/0/"
+					alt="Web Analytics Made Easy - Statcounter"
+					referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+								  <!-- End of Statcounter Code -->
+		  </center>
+		  </div>
+  </footer>
+</body>
+</html>

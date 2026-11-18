@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Gousset Lab</title>
+  <meta name="description" content="About Karine Gousset, research background, education, research support, awards, and work experience." />
+  <style>
+    :root {
+      --bg: #f7f6f6;
+      --surface: #ffffff;
+      --text: #222;
+      --muted: #666;
+      --accent: #b00020;
+      --border: #ddd;
+      --max-width: 980px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #f7f6f6;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+	  width: min(100% - 2rem, var(--max-width));
+	  margin: 0 auto;
+	}
+
+	.site-header {
+	  background: transparent;
+	  border-bottom: none;
+	  position: relative;
+	  top: auto;
+	  z-index: 100;
+	}
+
+	.header-inner {
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  display: block;
+	  padding: 0.5rem 0 0 0;
+	}
+
+	.site-title {
+	  margin: 0;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: 4.2rem;
+	  line-height: 1;
+	  font-weight: 800;
+	  letter-spacing: -0.03em;
+	  color: #555555;
+	}
+
+	.site-title span:last-child {
+	  color: #a9a9a9;
+	  font-weight: 700;
+	}
+
+	.nav {
+	  margin: 0;
+	}
+
+	.nav ul {
+	  display: flex;
+	  flex-wrap: wrap;
+	  gap: 0;
+	  list-style: none;
+	  margin: 0;
+	  padding: 0;
+	  font-family: "Helvetica Neue", Arial, sans-serif;
+	  font-size: 1.1rem;
+	  font-weight: 700;
+	  line-height: 1.2;
+	}
+
+	.nav li {
+	  margin: 0;
+	  padding: 0 2.1rem 0 0;
+	}
+
+	.nav a {
+	  color: #9a9a9a;
+	  text-decoration: none;
+	}
+
+	.nav a:visited {
+	  color: #9a9a9a;
+	}
+
+	.nav a:hover {
+	  color: #cc0000;
+	}
+
+	.nav a[aria-current="page"] {
+	  color: #666666;
+	}
+
+	.hero {
+	  position: relative;
+	  width: min(100%, 1000px);
+	  aspect-ratio: 1000 / 600;
+	  margin: 0 auto;
+	  overflow: hidden;
+	}
+
+	.hero-image {
+	  width: 100%;
+	  height: 100%;
+	  display: block;
+	  object-fit: cover;
+	}
+
+	.hero-quote-mark {
+	  position: absolute;
+	  left: -0.2em;
+	  top: -0.30em;
+	  z-index: 2;
+
+	  font-family: Georgia, "Times New Roman", serif;
+	  font-size: clamp(3.2rem, 10vw, 11.25rem);
+	  line-height: 1;
+	  color: #b22f0f;
+	  pointer-events: none;
+	}
+
+	.hero-quote {
+	  position: absolute;
+	  left: 45.86%;
+	  top: 35.5%;
+	  width: 50%;
+	  z-index: 2;
+
+	  color: #000000;
+	  font-family: Georgia, "Times New Roman", serif;
+	}
+
+	.hero-quote p {
+	  margin: 0;
+	  position: relative;
+	  z-index: 2;
+	}
+
+	.hero-quote p:first-of-type {
+	  font-size: clamp(0.95rem, 2.2vw, 1.5rem);
+	  line-height: 1.28;
+	}
+
+	.hero-cite {
+	  margin-top: 0.75rem;
+	  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
+	}
+
+    .caption {
+	  font-size: 0.62rem;
+	  color: #666666;
+	  text-align: left;
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  padding: 0.2rem 0 0;
+	  line-height: 1.15;
+	}
+	  
+	.site-footer {
+	  width: min(100%, 1000px);
+	  margin: 0 auto;
+	  padding: 2rem 0 3rem;
+	}
+
+	.footer-inner {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	}
+
+	.footer-logo {
+	  width: 100px;
+	  height: auto;
+	}
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .content-card {
+	  background: transparent;
+	  border-radius: 0;
+	  box-shadow: none;
+	  padding: 2rem 0;
+	}
+
+    .lead p:first-child {
+      margin-top: 0;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section h2 {
+      margin: 0 0 1rem;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.25rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .entry-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .entry {
+      padding-left: 1rem;
+      border-left: 3px solid var(--border);
+    }
+
+    .entry strong {
+      display: block;
+    }
+
+    .entry small {
+      display: block;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .site-footer {
+      padding: 2rem 0 3rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        font-size: 1.5rem;
+      }
+
+      .nav ul {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .content-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title"><span>Gousset</span> <span>Lab</span></h1>
+
+      <nav class="nav" aria-label="Main navigation">
+  <ul>
+    <li><a href="Welcome.html">Welcome</a></li>
+    <li><a href="About_Me.html" aria-current="page">About Me</a></li>
+    <li><a href="Lab_Members.html">Lab Members</a></li>
+    <li><a href="Publications.html">Publications</a></li>
+    <li><a href="TNT_Movies.html">TNT Movies</a></li>
+    <li><a href="Links.html">Links</a></li>
+  </ul>
+</nav>
+    </div>
+  </header>
+
+<section class="hero" aria-label="Featured quote">
+  <img class="hero-image" src="About_Me_files-shapeimage_1.png" alt="" />
+
+  <div class="hero-quote">
+    <div class="hero-quote-mark">&#8220;</div>
+    <p>
+      Nature shows us only the tail of the lion. But I do not doubt that the lion belongs to it even though he cannot at once reveal himself because of his enormous size.
+    </p>
+    <p class="hero-cite">Albert Einstein</p>
+  </div>
+</section>
+
+  <p class="caption">
+    3D reconstruction of CAD cells expressing GFP-Myo10. Picture acquired by Karine Gousset, Zurzolo Lab, Pasteur Institute, Paris, France.
+  </p>
+
+  <main class="container">
+    <article class="content-card">
+      <section class="lead" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+
+        <p>
+          I received my Ph.D. in Biochemistry and Molecular Biology in 2002 in the laboratories of Drs. Fern Tablin and John Crowe at the University of California, Davis. My work focused on platelets, the cells that make blood clot, and showed that one of the key steps in their activation is the formation of lipid rafts. After rafts form, the cells show other signs of activation, such as increased calcium levels, showing that lipid raft formation is a general first step in platelet activation.
+        </p>
+
+        <p>
+          I then joined the lab of Dr. Michael Edidin at Johns Hopkins University where I further studied the role of lipid rafts as a possible mechanism for transport of GPI&#8211;anchored proteins in polarized epithelial cells using FRET. In that study, I showed that GPI&#8211;anchored proteins are selectively clustered along the apical transport pathway (i.e. from the Golgi to apical surface) and that they quickly become randomly distributed once at the cell surface. This work led to co&#8211;authorship on a paper published in <em>Cell</em>: Sharma, Pranav; Varma, Rajat; Sarasij, R.C.; Ira; Gousset, Karine; Krishnamoorthy, G.; Rao, Madan; Mayor, Satyajit (2004). &#8220;Nanoscale Organization of Multiple GPI&#8211;Anchored Proteins in Living Cell Membranes.&#8221; <em>Cell</em> 116(4): 577&#8211;89.
+        </p>
+
+        <p>
+          In 2004, I joined the lab of Dr. Eric Freed as an NIH Cancer Research Training Fellow and worked on HIV&#8211;1 trafficking in macrophages. My work there confirmed that the matrix domain of Gag is required for its recruitment to the synapse. That study further demonstrated that HIV&#8211;1 particles are retained in internal reservoirs from which they can be rapidly released at opportune times, such as when contact is established with uninfected cells. The Tetracysteine (TC) system I developed provides an efficient way of observing Gag trafficking in living cells without disrupting the normal virus assembly and release and is likely to become an important tool in identifying molecular clues for HIV&#8211;1 trafficking within and between cells. The results of this study may also set the groundwork for the development of new HIV treatments based on interruption of intracellular viral trafficking. This work received the NIH/NCI Award for Top Advancement in HIV/AIDS in 2008.
+        </p>
+
+        <p>
+          In 2007, I was awarded a three&#8211;year Pasteur Foundation Fellowship to join the Pasteur Institute in Paris, France. In 2010 I applied for, and was awarded, a coveted Pasteur Institute research position. The emphasis of my work was on the role of tunneling nanotubes (TNTs), a newly discovered type of intercellular transport, in the spreading of prions in neuronal cells. This work was published in <em>Nature Cell Biology</em> entitled, &#8220;Prions Hijack Tunnelling Nanotubes for Intercellular Spread,&#8221; along with the News and Views and cover page. My follow&#8211;up paper in October 2013 highlighted the importance of the actin molecular motor Myosin&#8211;X in the formation and function of TNTs.
+        </p>
+
+        <p>
+          Finally, in 2013 I joined CSU, Fresno as an Assistant Professor of Virology, where I am continuing my work on the role of TNTs in the spreading of viruses and misfolded protein aggregates leading to neurodegenerative diseases.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="entry-list">
+          <div class="entry">
+            <strong>University of California, Davis</strong>
+            <small>Ph.D. in Biochemistry and Molecular Biology, June 2002</small>
+          </div>
+          <div class="entry">
+            <strong>University of Maryland at College Park</strong>
+            <small>Bachelor of Science in Biochemistry, May 1998</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="support-heading">
+        <h2 id="support-heading">Research Support</h2>
+        <div class="entry-list">
+          <div class="entry"><strong>PI Gousset K., NIH NIGMS &#8211; 1SC1GM139732</strong><small>2021&#8211;2027 &#8211; $1,294,719</small></div>
+          <div class="entry"><strong>PI Gousset K., Atomwise AIMS Award</strong><small>2 projects &#8211; 2019</small></div>
+          <div class="entry"><strong>PI Gousset K., CSUPERB Research Development Grant</strong><small>2019&#8211;2020 &#8211; $15,000</small></div>
+          <div class="entry"><strong>PI Gousset K., CSM Faculty Scholarly &amp; Creative Activity Award</strong><small>2019&#8211;2020 &#8211; $5,000</small></div>
+          <div class="entry"><strong>PI Gousset K., NIH NIGMS &#8211; 1SC2GM111144</strong><small>2014&#8211;2019 &#8211; $420,000</small></div>
+          <div class="entry"><strong>PI Gousset K., CSUPERB New Investigator Grant</strong><small>2014&#8211;2015 &#8211; $15,000</small></div>
+          <div class="entry"><strong>Mentor, Gousset K., Fundaci&oacute;n Alfonso Martín Escudero Postdoctoral Mobility Fellowship</strong><small>Ana Gordon &#8211; 2016&#8211;2018 &#8211; $73,000</small></div>
+          <div class="entry"><strong>Mentor, Gousset K., Presidents&#8217; Commission Scholars Program</strong><small>Pablo Guaman Tipan &#8211; 2016 &#8211; $8,000</small></div>
+          <div class="entry"><strong>PI Gousset K., College Scholarly and Creative Activity Award</strong><small>2016&#8211;2017 &#8211; $5,000</small></div>
+          <div class="entry"><strong>PI Gousset K., Faculty Professional Development Award</strong><small>2016&#8211;2017 &#8211; $1,200</small></div>
+          <div class="entry"><strong>PI Gousset K., RIMI Faculty Development Grant, CSU Fresno Foundation</strong><small>2013&#8211;2014 &#8211; $6,000</small></div>
+          <div class="entry"><strong>PI Gousset K., Faculty Professional Development Award</strong><small>2013&#8211;2014 &#8211; $2,000</small></div>
+          <div class="entry"><strong>Gousset K., Pasteur Foundation Fellowship</strong><small>2007&#8211;2010 &#8211; $213,000</small></div>
+          <div class="entry"><strong>Gousset K., NCI Cancer Research Training Award</strong><small>2004&#8211;2007 &#8211; $132,000</small></div>
+          <div class="entry"><strong>Gousset K., T32AI007247&#8211;21 Ruth L. Kirschstein NRSA Training Grant</strong><small>2003 &#8211; $32,000 stipend</small></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="awards-heading">
+        <h2 id="awards-heading">Academic Honors, Awards, and Service</h2>
+        <div class="entry-list">
+			<div class="entry"><strong>Panelist/Reviewer, NIH F04B: Fellowships: Chemistry, Biochemistry and Biophysics B</strong><small>Invited in 2026</small></div>
+			<div class="entry"><strong>Outstanding Advisor Award, California State University, Fresno</strong><small>2022</small></div>
+			<div class="entry"><strong>Outstanding Faculty Research Award, California State University, Fresno</strong><small>2020</small></div>
+			<div class="entry"><strong>Outstanding Faculty Publication Award, California State University, Fresno</strong><small>2020</small></div>
+			<div class="entry"><strong>Outstanding Faculty Publication Award, California State University, Fresno</strong><small>2019</small></div>
+          <div class="entry"><strong>Panelist/Reviewer, NIH ZGM1 RCB&#8211;3 (SC): NIGMS Special Emphasis Panel</strong><small>Invited in 2018</small></div>
+          <div class="entry"><strong>Panelist/Reviewer, NIH 2016/10 ZGM1 RCB&#8211;3 (CI): NIGMS Special Emphasis Panel</strong><small>Invited in 2016</small></div>
+          <div class="entry"><strong>Article Reviewer, Translational Research</strong></div>
+          <div class="entry"><strong>Article Reviewer, Nature Scientific Reports</strong></div>
+          <div class="entry"><strong>Panelist/Reviewer, NSF Graduate Research Fellowship Program</strong><small>Invited in 2016 and 2014</small></div>
+          <div class="entry"><strong>Panelist/Reviewer, NIH ZGM1 TWD&#8211;3 (SC): NIGMS Special Emphasis Panel</strong><small>Invited in 2015</small></div>
+          <div class="entry"><strong>Panelist/Reviewer, CSUPERB Major Grants Panel</strong><small>Invited in 2015</small></div>
+          <div class="entry"><strong>RIMI Faculty Development Grant Awardee</strong><small>2014</small></div>
+          <div class="entry"><strong>Faculty Professional Development Grant Awardee</strong><small>2013/2014</small></div>
+          <div class="entry"><strong>Awarded the NIH/NCI Top Advancement in HIV/AIDS</strong><small>2008</small></div>
+          <div class="entry"><strong>Awarded the Pasteur Foundation Fellowship</strong><small>2007&#8211;2010</small></div>
+          <div class="entry"><strong>Awarded the NIH Fellows Award for Research Excellence</strong><small>2007</small></div>
+          <div class="entry"><strong>Awarded an NCI Cancer Research Training Award</strong><small>2004&#8211;2007</small></div>
+          <div class="entry"><strong>Awarded a Ruth L. Kirschstein National Research Service Award Training Grant</strong><small>2003</small></div>
+          <div class="entry"><strong>Awarded the Robert Smith Memorial Research Fellowship</strong><small>2002</small></div>
+          <div class="entry"><strong>Awarded the John J. Leidy Foundation Fellowship</strong><small>1998</small></div>
+          <div class="entry"><strong>Member, Phi Sigma Biological Research Honor Society</strong><small>1998&#8211;2002</small></div>
+          <div class="entry"><strong>Member, The Golden Key National Honor Society</strong><small>1996&#8211;1998</small></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Work Experience</h2>
+        <div class="entry-list">
+          <div class="entry">
+            <strong>Research Scientist (Charg&eacute;e de recherche de 1re classe)</strong>
+            <small>Pasteur Institute, Paris, France &#8211; Membrane Trafficking and Pathogenesis, Laboratory of Dr. Zurzolo, C. &#8211; Sept 2010 &#8211; June 2013</small>
+          </div>
+          <div class="entry">
+            <strong>Pasteur Foundation Fellow</strong>
+            <small>Pasteur Institute, Paris, France &#8211; Membrane Trafficking and Pathogenesis, Laboratory of Dr. Zurzolo, C. &#8211; Sept 2007 &#8211; Sept 2010</small>
+          </div>
+          <div class="entry">
+            <strong>Cancer Research Training Award (CRTA) Fellow</strong>
+            <small>NIH, National Cancer Institute, Frederick, MD &#8211; Virus&#8211;Cell Interaction Section, Laboratory of Dr. Freed, E.O. &#8211; Mar 2004 &#8211; Sept 2007</small>
+          </div>
+          <div class="entry">
+            <strong>Postdoctoral Fellow</strong>
+            <small>Johns Hopkins University, Baltimore, MD &#8211; Department of Biology, Laboratory of Dr. Edidin, M. &#8211; Sept 2002 &#8211; Feb 2004</small>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+	  <footer class="site-footer">
+	  <div class="footer-inner">
+		<a
+		  href="http://www.fresnostate.edu/csm/"
+		  target="_blank"
+		  rel="noopener noreferrer"
+		  aria-label="Fresno State College of Science and Mathematics"
+		>
+		  <img
+			class="footer-logo"
+			src="Media-Fresno_State_Bulldogs_Logo.svg.png"
+			alt="Fresno State logo"
+		  />
+		</a>
+	  </div>
+	  <div>
+		  <center>
+			  <!-- Default Statcounter code for Gousset
+					http://zimmer.csufresno.edu/~kgousset/Gousset_Lab/Welcome.html
+					-->
+					<script type="text/javascript">
+					var sc_project=10020829; 
+					var sc_invisible=0; 
+					var sc_security="e5c0fd1b"; 
+					var scJsHost = "https://";
+					document.write("<sc"+"ript type='text/javascript' src='" +
+					scJsHost+
+					"statcounter.com/counter/counter.js'></"+"script>");
+					</script>
+					<noscript><div class="statcounter"><a title="Web Analytics
+					Made Easy - Statcounter" href="https://statcounter.com/"
+					target="_blank"><img class="statcounter"
+					src="https://c.statcounter.com/10020829/0/e5c0fd1b/0/"
+					alt="Web Analytics Made Easy - Statcounter"
+					referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+								  <!-- End of Statcounter Code -->
+		  </center>
+		  </div>
+	</footer>
+</body>
+</html>
